@@ -9,8 +9,8 @@ npm test                        # run all tests (vitest)
 npm test -- --reporter=verbose  # run tests with per-test output
 npx vitest run src/tools/calculator.test.ts  # run a single test file
 npm run server                  # start Express server → http://localhost:3000
-npm start                       # run calculator agent CLI (Anthropic, default question)
-npm start -- --provider openai "What is 99 * 12?"
+npm run calculator              # run calculator agent CLI (Anthropic, default question)
+npm run calculator -- --provider openai "What is 99 * 12?"
 npm run weather                 # run weather agent once then schedule hourly
 ```
 
@@ -29,7 +29,7 @@ The project is a TypeScript ESM package (`"type": "module"`, NodeNext resolution
 - `src/utils/clients.ts` — singleton Anthropic and OpenAI clients (reads from env).
 - `src/utils/scheduler.ts` — thin wrapper around `node-cron`.
 - `src/server.ts` — Express 5 server; serves `public/` statically and exposes two POST endpoints (`/api/weather/check`, `/api/calculator`) plus `GET /api/weather/history`.
-- `agent.ts` / `weather-agent.ts` — CLI entrypoints at the repo root.
+- `calculator-agent.ts` / `weather-agent.ts` — CLI entrypoints at the repo root.
 
 **Models in use:** calculator agent uses `claude-haiku-4-5-20251001` (Anthropic) and `gpt-4o-mini` (OpenAI); weather agent uses `gpt-4o-mini`.
 
