@@ -15,7 +15,7 @@ vi.mock('fs', async (importOriginal) => {
     ...actual,
     // appendFileSync stays as a spy wrapping the real implementation during
     // the "real file" tests and is overridden per-test for the mock tests.
-    appendFileSync: vi.fn(actual.appendFileSync),
+    appendFileSync: vi.fn(),
   };
 });
 
