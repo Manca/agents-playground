@@ -46,4 +46,6 @@ app.post('/api/calculator', async (req, res) => {
 });
 
 const PORT = process.env.PORT ?? 3000;
-app.listen(PORT, () => console.log(`Agent console → http://localhost:${PORT}`));
+const server = app.listen(PORT, () => console.log(`Agent console → http://localhost:${PORT}`));
+
+process.on('SIGTERM', () => server.close(() => process.exit(0)));

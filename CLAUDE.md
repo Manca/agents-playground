@@ -9,6 +9,7 @@ npm test                        # run all tests (vitest)
 npm test -- --reporter=verbose  # run tests with per-test output
 npx vitest run src/tools/calculator.test.ts  # run a single test file
 npm run server                  # start Express server → http://localhost:3000
+npm run stop                    # stop the server
 npm run calculator              # run calculator agent CLI (Anthropic, default question)
 npm run calculator -- --provider openai "What is 99 * 12?"
 npm run weather                 # run weather agent once then schedule hourly
