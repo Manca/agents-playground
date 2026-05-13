@@ -17,7 +17,9 @@ src/
   prompts/      # prompt templates
   utils/        # shared clients, scheduler
 public/
-  index.html    # terminal UI (black/green, live autocomplete)
+  index.html    # markup
+  styles.css    # terminal theme (black/green, CSS variables)
+  app.js        # UI logic (weather, calculator, autocomplete)
 ```
 
 ## Usage
