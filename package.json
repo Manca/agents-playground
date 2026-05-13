@@ -6,7 +6,7 @@
     "calculator": "tsx calculator-agent.ts",
     "weather": "tsx weather-agent.ts",
     "server": "tsx src/server.ts",
-    "stop": "lsof -ti:3000 | xargs kill",
+    "stop": "pkill -f 'tsx src/server.ts'",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage"
