@@ -27,7 +27,9 @@ const footerClock    = document.getElementById('footer-clock');
 const uptimeEl       = document.getElementById('uptime');
 const checkCountEl   = document.getElementById('check-count');
 const calcCountEl    = document.getElementById('calc-count');
-const panelHeaderTag = document.querySelector('.panel-header-tag');
+const panelHeaderTag = document.getElementById('weather-panel-tag');
+const btnOpenai      = document.getElementById('btn-openai');
+const btnAnthropic   = document.getElementById('btn-anthropic');
 
 // ── CLOCK ──
 function tick() {
@@ -48,12 +50,12 @@ tick();
 // ── PROVIDER ──
 function setProvider(p) {
   provider = p;
-  document.getElementById('btn-openai').classList.toggle('active', p === 'openai');
-  document.getElementById('btn-anthropic').classList.toggle('active', p === 'anthropic');
+  btnOpenai.classList.toggle('active', p === 'openai');
+  btnAnthropic.classList.toggle('active', p === 'anthropic');
 }
 
-document.getElementById('btn-openai').addEventListener('click', () => setProvider('openai'));
-document.getElementById('btn-anthropic').addEventListener('click', () => setProvider('anthropic'));
+btnOpenai.addEventListener('click', () => setProvider('openai'));
+btnAnthropic.addEventListener('click', () => setProvider('anthropic'));
 
 // ── WEATHER ──
 function setWeatherLoading(loading) {
@@ -95,7 +97,7 @@ async function fetchWeather() {
   panelHeaderTag.textContent = city.toUpperCase();
   setWeatherLoading(true);
   weatherStatus.textContent = '';
-  weatherStatus.style.color = '';
+  weatherStatus.classList.remove('error');
 
   try {
     const res = await fetch('/api/weather/check', {
@@ -112,16 +114,16 @@ async function fetchWeather() {
       await loadWeatherHistory();
     } else {
       weatherStatus.textContent = '✗ ' + (data.error ?? 'ERR');
-      weatherStatus.style.color = 'var(--red-bright)';
+      weatherStatus.classList.add('error');
     }
   } catch {
     weatherStatus.textContent = '✗ NETWORK ERR';
-    weatherStatus.style.color = 'var(--red-bright)';
+    weatherStatus.classList.add('error');
   } finally {
     setWeatherLoading(false);
     setTimeout(() => {
       weatherStatus.textContent = '';
-      weatherStatus.style.color = '';
+      weatherStatus.classList.remove('error');
     }, 4000);
   }
 }
@@ -174,7 +176,7 @@ async function runCalc() {
 }
 
 function addToHistory(q, a) {
-  calcHistoryWrap.style.display = 'block';
+  calcHistoryWrap.classList.add('visible');
   const entry = document.createElement('div');
   entry.className = 'calc-entry';
   entry.innerHTML = `<div class="q">&gt; ${escHtml(q)}</div><div class="a">${escHtml(a)}</div>`;
