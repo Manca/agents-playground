@@ -18,7 +18,6 @@ src/
   utils/        # shared clients, scheduler
 public/
   index.html    # terminal UI (black/green, live autocomplete)
-with-respan/    # Respan tracing reference implementation
 ```
 
 ## Usage
@@ -45,5 +44,4 @@ Copy `.env.example` and fill in your keys:
 ```
 ANTHROPIC_API_KEY=
 OPENAI_API_KEY=
-RESPAN_API_KEY=      # optional, for tracing (see with-respan/)
 ```
