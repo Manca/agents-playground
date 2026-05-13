@@ -26,8 +26,7 @@ public/
 
 ```bash
 # Calculator agent
-npm start                                    # Anthropic, default question
-npm start -- --provider openai "What is 99 * 12?"
+npm run calculator -- --provider openai "What is 99 * 12?"
 
 # Weather agent (runs hourly)
 npm run weather
@@ -41,7 +40,7 @@ npm test
 
 ## Setup
 
-Copy `.env.example` and fill in your keys:
+Create `.env` and fill in your keys:
 
 ```
 ANTHROPIC_API_KEY=

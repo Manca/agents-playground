@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "start": "tsx agent.ts",
+    "calculator": "tsx calculator-agent.ts",
     "weather": "tsx weather-agent.ts",
     "server": "tsx src/server.ts",
     "test": "vitest run",
