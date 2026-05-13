@@ -1,0 +1,34 @@
+{
+  "name": "respan-agent",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "tsx agent.ts",
+    "weather": "tsx weather-agent.ts",
+    "server": "tsx src/server.ts",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "0.95.2",
+    "@respan/instrumentation-anthropic": "1.1.2",
+    "@respan/instrumentation-openai": "1.0.2",
+    "@respan/respan": "2.1.0",
+    "dotenv": "16.5.0",
+    "express": "5.2.1",
+    "node-cron": "4.2.1",
+    "openai": "6.37.0"
+  },
+  "devDependencies": {
+    "@types/express": "5.0.6",
+    "@types/node": "22.15.18",
+    "@types/node-cron": "3.0.11",
+    "@types/supertest": "^7.2.0",
+    "@vitest/coverage-v8": "^4.1.6",
+    "supertest": "^7.2.2",
+    "tsx": "4.19.4",
+    "typescript": "5.8.3",
+    "vitest": "^3.2.4"
+  }
+}
